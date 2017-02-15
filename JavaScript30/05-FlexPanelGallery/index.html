@@ -135,6 +135,29 @@
 
   <script>
 
+  //select panels
+  const panels = document.querySelectorAll('.panel');
+
+  //toggle open class
+  function toggleOpen() {
+    this.classList.toggle('open');
+  }
+
+  //toggle open-active class
+  function toggleActive(e) {
+    if(e.propertyName.includes('flex')) {
+      this.classList.toggle('open-active');
+    }
+  }
+
+  //listen for click on panels
+  panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+
+  //listen for end of transition on panels so text can drop in
+  panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+
+
   </script>
 
 
